@@ -6,20 +6,20 @@
     "start": "node ./bin/www"
   },
   "dependencies": {
-    "body-parser": "~1.17.1",
-    "bodybuilder": "^2.2.1",
-    "compression": "^1.7.0",
+    "body-parser": "~1.18.3",
+    "bodybuilder": "^2.2.15",
+    "compression": "^1.7.3",
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
-    "debug": "~2.6.3",
+    "debug": "~4.0.1",
     "dotenv": "^6.0.0",
-    "elasticsearch": "^13.3.1",
-    "eslint": "^4.17.0",
-    "express": "~4.15.2",
-    "morgan": "~1.8.1",
-    "pug": "~2.0.0-beta11",
-    "serve-favicon": "~2.4.2",
-    "stopword": "^0.1.6",
-    "winston": "^2.3.1"
+    "elasticsearch": "^15.1.1",
+    "eslint": "^5.6.1",
+    "express": "~4.16.3",
+    "morgan": "~1.9.1",
+    "pug": "~2.0.3",
+    "serve-favicon": "~2.5.0",
+    "stopword": "^0.1.11",
+    "winston": "^3.1.0"
   }
 }
