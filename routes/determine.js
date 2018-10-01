@@ -4,7 +4,7 @@ const util = require("util");
 require("dotenv").config({path: "../config/elinode.env"})
 var elasticclient = new elasticsearch.Client({
   host: process.env.ELASTIC_HOST,
-  log: "trace"
+  log: "info"
 });
 
 /**
@@ -13,7 +13,6 @@ var elasticclient = new elasticsearch.Client({
  * @param {string} searchTerms
  */
 function determine(searchTerms, callback, req, res) {
-  console.log(searchTerms);
   if (searchTerms.length < 2) {
     elasticclient.search(
       { index: "eliresume_v4", q: "*:*", size: 500 },
@@ -23,7 +22,6 @@ function determine(searchTerms, callback, req, res) {
     const termsList = searchTerms
       .split(/[^a-zA-Z]/)
       .filter(n => n !== "" && n !== undefined);
-    console.log("TERMS:", termsList);
     let focusTerms = sw.removeStopwords(termsList, sw.en);
     let joined = focusTerms.join("* OR *");
     joined = joined + "*";
@@ -40,7 +38,6 @@ function determine(searchTerms, callback, req, res) {
       },
       size: 1000
     };
-    console.log(util.inspect(query, true, null));
     elasticclient.search(query, finishedSearch);
   }
 
@@ -53,7 +50,6 @@ function determine(searchTerms, callback, req, res) {
       callback(req, res, {});
       return;
     }
-    console.log(results);
     let educationResults = [];
     let skillResults = [];
     let workResults = [];
