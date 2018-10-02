@@ -3,17 +3,7 @@ var router = express.Router();
 var path = require("path");
 var determine = require("./determine.js");
 
-router.get("/determine", function(req, res, next) {
-  determine(req.query.data.trim(), determineFinished, req, res);
-});
-
-
-function determineFinished(req, res, results) {
-  res.status(200).json(results);
-}
-
-router.get("/", function(req, res, next) {
-  res.render("index");
-});
-
+router.get('/', (req, res)=>{
+  res.sendFile(path.join(__dirname, '/build/index.html'));
+})
 module.exports = router;
